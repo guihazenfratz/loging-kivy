@@ -16,7 +16,7 @@ class DataBase:
             email, password, name, created = line.strip().split(";")
             self.users[email] = (password, name, created)
 
-            self.file.close()
+        self.file.close()
 
     def get_user(self, email):
         if email in self.users:
@@ -40,7 +40,7 @@ class DataBase:
     def save(self):
         with open(self.filename,"w") as f:
             for user in self.users:
-                f.write(f"{user} ; {self.users[user][0]} ; {self.users[user][1]} ; {self.users[user][2]}\n")
+                f.write(f"{user};{self.users[user][0]};{self.users[user][1]};{self.users[user][2]}\n")
 
 
     @staticmethod
